@@ -1,0 +1,15 @@
+.root {
+    max-width: 400px;
+}
+.media {
+    height: 400px;
+}
+.price {
+    display: flex;
+    padding: 8px;
+    align-items: center;
+}
+.addCard{
+    display: flex;
+    flex-wrap: wrap;
+}
