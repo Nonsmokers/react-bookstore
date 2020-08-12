@@ -12,4 +12,5 @@
 .addCard{
     display: flex;
     flex-wrap: wrap;
+    float: bottom;
 }

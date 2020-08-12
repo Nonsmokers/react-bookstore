@@ -1,5 +1,5 @@
-const SET_BOOK = 'SET_BOOK'
-const SET_IS_READY = 'SET_IS_READY'
+import {SET_BOOK} from './actionTypes'
+import {SET_IS_READY} from './actionTypes'
 
 let initial_state = {
     isReady: false,
