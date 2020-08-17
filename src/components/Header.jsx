@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
     },
+    header:{
+        backgroundColor: '#9aa68f',
+    },
     menuButton: {
         marginRight: theme.spacing(2),
     },
@@ -89,16 +92,13 @@ const Header = () => {
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
-
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
     };
-
     const handleMenuClose = () => {
         setAnchorEl(null);
         handleMobileMenuClose();
     };
-
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
@@ -155,7 +155,8 @@ const Header = () => {
 
     return (
         <div className={classes.grow}>
-            <AppBar position="static">
+            <AppBar position="static"
+                    className={classes.header}>
                 <Toolbar>
                     <IconButton
                         edge="start"

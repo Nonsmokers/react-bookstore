@@ -7,8 +7,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import Typography from '@material-ui/core/Typography';
-import s from './BookCard.module.css';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import s from './BookCard.module.css';
 
 const BookCard = (props) => {
     return (
