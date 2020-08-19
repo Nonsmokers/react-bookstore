@@ -1,11 +1,9 @@
 import {SET_BOOK} from './actionTypes'
 import {SET_IS_READY} from './actionTypes'
-import {SET_FILTER} from './actionTypes'
 
 let initial_state = {
     isReady: false,
     items: null,
-    filterBy: 'all'
 }
 
 const booksReducer = (state = initial_state, action) => {
@@ -15,12 +13,6 @@ const booksReducer = (state = initial_state, action) => {
                 ...state,
                 items: action.payload,
                 isReady: true
-            }
-        }
-        case SET_FILTER: {
-            return {
-                ...state,
-                filterBy: action.payload
             }
         }
         case SET_IS_READY: {

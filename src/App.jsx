@@ -7,6 +7,7 @@ import BookCard from "./components/BookCard";
 import * as axios from "axios";
 import s from "./App.module.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import Filter from "./components/Filter";
 
 class App extends React.Component {
     componentWillMount() {
@@ -17,12 +18,14 @@ class App extends React.Component {
     }
 
     render() {
-        const {cards, isReady} = this.props
+        const {cards, isReady, setFilter} = this.props
 
         return (
             <>
                 <Header/>
+                <Filter setFilter={setFilter}/>
                 <main>
+                    {/*часть потом вынести в отдельный компонент*/}
                     <Container maxWidth="md">
                         <Grid container spacing={6} className={s.cardGrid}>
                             {!isReady
