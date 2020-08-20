@@ -3,11 +3,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-const FilterContainer = () => {
-    return
-}
-
-function Filter(props) {
+function SortBooks({setFilter}) {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
@@ -15,11 +11,6 @@ function Filter(props) {
     };
     const handleClose = () => {
         setAnchorEl(null);
-    };
-
-    const handleItem = (event) => {
-        const setFilter = props.setFilter
-        setFilter(event.currentTarget)
     };
 
     return (
@@ -34,14 +25,14 @@ function Filter(props) {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
-                <MenuItem onClick={handleItem}>Все</MenuItem>
-                <MenuItem onClick={handleClose}>Популярные</MenuItem>
-                <MenuItem onClick={handleClose}>Цене(возрастанение)</MenuItem>
-                <MenuItem onClick={handleClose}>Цене(убывание)</MenuItem>
-                <MenuItem onClick={handleClose}>Автор</MenuItem>
+                <MenuItem onClick={setFilter.bind(this, 'all')}>Все</MenuItem>
+                <MenuItem onClick={setFilter.bind(this, 'popular')}>Популярные</MenuItem>
+                <MenuItem onClick={setFilter.bind(this, 'price_high')}>Цене(убывание)</MenuItem>
+                <MenuItem onClick={setFilter.bind(this, 'price_low')}>Цене(возрастанение)</MenuItem>
+                <MenuItem onClick={setFilter.bind(this, 'author')}>Автор</MenuItem>
             </Menu>
         </div>
     );
 }
 
-export default Filter;
+export default SortBooks;

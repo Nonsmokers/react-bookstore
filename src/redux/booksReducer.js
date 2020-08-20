@@ -1,6 +1,6 @@
-import {SET_BOOK} from './actionTypes'
-import {SET_IS_READY} from './actionTypes'
-import {SET_FILTER} from './actionTypes'
+import {SET_BOOK} from '../actions/actionTypes'
+import {SET_IS_READY} from '../actions/actionTypes'
+import {SET_FILTER} from '../actions/actionTypes'
 
 let initial_state = {
     isReady: false,

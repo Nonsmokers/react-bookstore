@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
     },
-    header:{
+    header: {
         backgroundColor: '#9aa68f',
     },
     menuButton: {
@@ -191,8 +191,8 @@ const Header = () => {
                             </Badge>
                         </IconButton>
                     </div>
-                    <Typography className={classes.title} variant="h9" noWrap>
-                        Итого: <b>0</b>руб.
+                    <Typography className={classes.title} variant="h6" noWrap>
+                        Итого: <b>0</b> руб.
                     </Typography>
                     <div className={classes.sectionDesktop}>
                         <IconButton

@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import Typography from '@material-ui/core/Typography';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import s from './styles/BookCard.module.css';
+import s from './BookCard.module.css';
 
 const BookCard = (props) => {
     return (
@@ -28,7 +28,7 @@ const BookCard = (props) => {
                 </CardContent>
             </CardActionArea>
             <div className={s.addCard}>
-                <Typography variant="h7" color="textSecondary" className={s.price}>
+                <Typography variant="h6" color="textSecondary" className={s.price}>
                     <LocalOfferIcon /> price: <b>{props.price}</b>
                 </Typography>
                 <CardActions>
