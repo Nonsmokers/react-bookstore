@@ -10,35 +10,37 @@ import Typography from '@material-ui/core/Typography';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import s from './BookCard.module.css';
 
-const BookCard = (props) => {
+const BookCard = book => {
+    const {image,title,author,price,addBookToCart} = book;
     return (
         <Card className={s.root}>
             <CardActionArea>
                 <CardMedia
                     className={s.media}
-                    image={props.image}
+                    image={image}
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h6" component="h5">
-                        {props.title}
+                        {title}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        {props.author}
+                        {author}
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            <div className={s.addCard}>
+            <div>
                 <Typography variant="h6" color="textSecondary" className={s.price}>
-                    <LocalOfferIcon /> price: <b>{props.price}</b>
+                    <LocalOfferIcon/> Цена: <b> {price} ₽</b>
                 </Typography>
                 <CardActions>
                     <Button
-                        size="small"
+                        className={s.addCardButton}
+                        onClick={addBookToCart.bind(this, book)}
                         color="primary"
                         variant="contained"
-                        startIcon={<ShoppingCartIcon />}
+                        startIcon={<ShoppingCartIcon/>}
                     >
-                        Купить книгу
+                        Добавить в корзину
                     </Button>
                 </CardActions>
 

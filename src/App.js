@@ -2,10 +2,10 @@ import React from 'react';
 import * as axios from "axios";
 import {connect} from "react-redux";
 import {setBooks} from "./actions/books";
-import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import SortBooks from "./components/SortBooks/SortBooksContainer";
+import SortBooks from "./components/FilterBooks/FilterBooksContainer";
 import BooksGridContainer from "./components/Books/BooksGridContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 class App extends React.Component {
 
@@ -19,7 +19,7 @@ class App extends React.Component {
     render() {
         return (
             <>
-                <Header/>
+                <HeaderContainer/>
                 <SortBooks/>
                 <BooksGridContainer/>
                 <Footer/>

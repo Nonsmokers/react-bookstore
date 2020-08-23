@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-function SortBooks({setFilter}) {
+function FilterBooks({setFilter}) {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
@@ -19,11 +19,8 @@ function SortBooks({setFilter}) {
                 Сортировать
             </Button>
             <Menu
-                id="simple-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
+                id="simple-menu" anchorEl={anchorEl} keepMounted
+                open={Boolean(anchorEl)} onClose={handleClose}
             >
                 <MenuItem onClick={setFilter.bind(this, 'all')}>Все</MenuItem>
                 <MenuItem onClick={setFilter.bind(this, 'popular')}>Популярные</MenuItem>
@@ -35,4 +32,4 @@ function SortBooks({setFilter}) {
     );
 }
 
-export default SortBooks;
+export default FilterBooks;

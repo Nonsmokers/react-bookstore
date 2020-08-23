@@ -4,8 +4,7 @@ import {SET_FILTER} from '../actions/actionTypes'
 
 let initial_state = {
     isReady: false,
-    items: null,
-    filterBy: 'all'
+    items: null
 }
 
 const booksReducer = (state = initial_state, action) => {

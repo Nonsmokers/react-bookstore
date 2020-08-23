@@ -9,8 +9,6 @@
     padding: 8px;
     align-items: center;
 }
-.addCard{
-    display: flex;
-    flex-wrap: wrap;
-    float: bottom;
+.addCardButton{
+    width: 100%;
 }

@@ -13,6 +13,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Popper from "@material-ui/core/Popper";
+import Fade from "@material-ui/core/Fade";
+import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -81,7 +84,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Header = () => {
+
+const Header = (props) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -92,15 +96,15 @@ const Header = () => {
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
-    };
     const handleMenuClose = () => {
         setAnchorEl(null);
         handleMobileMenuClose();
     };
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
+    };
+    const handleMobileMenuClose = () => {
+        setMobileMoreAnchorEl(null);
     };
 
     const menuId = 'primary-search-account-menu';
@@ -174,7 +178,9 @@ const Header = () => {
                             <SearchIcon/>
                         </div>
                         <InputBase
-                            placeholder="Search…"
+                            placeholder="Введи запрос…"
+                            onChange={e => props.setSearchQuery(e.currentTarget.value)}
+                            value={props.searchQuery}
                             classes={{
                                 root: classes.inputRoot,
                                 input: classes.inputInput,
@@ -182,17 +188,27 @@ const Header = () => {
                             inputProps={{'aria-label': 'search'}}
                         />
                     </div>
-
                     <div className={classes.grow}/>
                     <div className={classes.sectionDesktop}>
                         <IconButton aria-label="show 4 new mails" color="inherit">
-                            <Badge badgeContent={4} color="secondary">
-                                <ShoppingCartIcon/>
+                            <Badge badgeContent={props.count} color="secondary">
+                                <ShoppingCartIcon />
                             </Badge>
                         </IconButton>
+        popper на корзину
+        {/*                <Popper transition>
+                            {({TransitionProps}) => (
+                                <Fade {...TransitionProps} timeout={350}>
+                                    <Paper>
+                                        <Typography className={classes.typography}>The content of the
+                                            Popper.</Typography>
+                                    </Paper>
+                                </Fade>
+                            )}
+                        </Popper>*/}
                     </div>
                     <Typography className={classes.title} variant="h6" noWrap>
-                        Итого: <b>0</b> руб.
+                        Итого: <b>{props.totalPrice}</b> руб.
                     </Typography>
                     <div className={classes.sectionDesktop}>
                         <IconButton
