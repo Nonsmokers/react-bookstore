@@ -2,7 +2,7 @@ import {ADD_BOOK_TO_CART} from '../actions/actionTypes'
 import {REMOVE_BOOK_FROM_CART} from '../actions/actionTypes'
 
 let initial_state = {
-    items: []
+    items: [],
 }
 
 const cartReducer = (state = initial_state, action) => {
