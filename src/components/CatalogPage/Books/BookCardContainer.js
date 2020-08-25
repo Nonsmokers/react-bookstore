@@ -1,10 +1,9 @@
 import {connect} from "react-redux";
-import {addBookToCart} from "../../actions/cart";
+import {addBookToCart} from "../../../actions/cart";
 import BookCard from "./BookCard";
 
-const mapStateToProps = (state) => ({
-    totalPrice: state.cartReducer.items.reduce((total, book) => total + book.price, 0),
-    count: state.cartReducer.items.length
+const mapStateToProps = ({cartReducer},{id}) => ({
+    addedCount: cartReducer.items.reduce((total, book) => total + (book.id === id ? 1:0),0)
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -119,12 +119,10 @@ const Header = (props) => {
             <AppBar position="static"
                     className={classes.header}>
                 <Toolbar>
-
                     <Sidebar edge="start"
                              className={classes.menuButton}
                              color="inherit">
                     </Sidebar>
-
 
                     <Typography className={classes.title} variant="h6" noWrap>
                         React-bookstore
@@ -139,6 +137,7 @@ const Header = (props) => {
                             </Badge>
                         </IconButton>
                     </div>
+                    &nbsp;
                     <Popover
                         anchorEl={PopoverOpen}
                         anchorOrigin={{vertical: 'top', horizontal: 'right'}}
@@ -146,10 +145,11 @@ const Header = (props) => {
                         open={isPopoverOpen}
                         onClose={handlePopoverClose}
                     >
-                        <CartHeader/>
+                        {props.items.map(book => <CartHeader key={book} title={props.title}/>)}
+
                     </Popover>
                     <Typography className={classes.title} variant="h6" noWrap>
-                        Итого: <b>{props.totalPrice}</b> руб.
+                        Итого: &nbsp;  <b>{props.totalPrice}</b> &nbsp; руб.
                     </Typography>
                     <div className={classes.sectionDesktop}>
                         <IconButton

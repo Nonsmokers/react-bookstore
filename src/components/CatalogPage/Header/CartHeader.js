@@ -6,16 +6,15 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import DeleteIcon from '@material-ui/icons/Delete';
 
-const CartHeader = () => {
-    return(
+const CartHeader = (props) => {
+    return (
+
         <List>
+
             <ListItem>
-                <ListItemText
-                    primary="Single-line item"
-                />
+                <ListItemText primary={props.title}/>
                 <ListItemSecondaryAction>
-                    <IconButton edge="end"
-                                aria-label="delete">
+                    <IconButton edge="end">
                         <DeleteIcon/>
                     </IconButton>
                 </ListItemSecondaryAction>

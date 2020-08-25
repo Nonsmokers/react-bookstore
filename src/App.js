@@ -1,44 +1,28 @@
 import React from 'react';
-import * as axios from "axios";
-import {connect} from "react-redux";
-import {setBooks} from "./actions/books";
-import Footer from "./components/Footer/Footer";
-import SortBooks from "./components/FilterBooks/FilterBooksContainer";
-import BooksGridContainer from "./components/Books/BooksGridContainer";
-import HeaderContainer from "./components/Header/HeaderContainer";
+import HeaderContainer from "./components/CatalogPage/Header/HeaderContainer";
+import CatalogPage from "./components/CatalogPage/CatalogPage";
+import {HashRouter, Route, Switch} from "react-router-dom";
+import HomePage from "./components/HomePage/HomePage";
 
-class App extends React.Component {
-
-    componentWillMount() {
-        const {setBooks} = this.props;
-        axios.get('/booksData.json').then(response => {
-            setBooks(response.data)
-        })
-    }
-
-    render() {
-        return (
-            <>
+function App() {
+    return (
+        <>
+            <HashRouter>
                 <HeaderContainer/>
-                <SortBooks/>
-                <BooksGridContainer/>
-                <Footer/>
-                }
-            </>
-        );
-    }
+                <div>
+                    <Switch>
+                        <Route path='/' exact component={CatalogPage}/>
+                        <Route path='/home' exact component={HomePage}  />
+                        {/*<Route path='/about' component={About}/>
+                        <Route path='/profile/:name' component={Profile}/>*/}
+                    </Switch>
+                </div>
+            </HashRouter>
+        </>
+    );
 }
 
-const mapStateToProps = () => ({
-    /* initialized: state.app.initialized */
-});
-
-const mapDispatchToProps = dispatch => ({
-    setBooks: books => dispatch(setBooks(books)),
-    /* books => dispatch(action creator(object)) */
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
 
 
 

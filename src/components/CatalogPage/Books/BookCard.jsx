@@ -11,7 +11,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import s from './BookCard.module.css';
 
 const BookCard = book => {
-    const {image,title,author,price,addBookToCart,totalCount} = book;
+    const {image,title,author,price,addBookToCart,addedCount} = book;
     return (
         <Card className={s.root}>
             <CardActionArea>
@@ -40,7 +40,7 @@ const BookCard = book => {
                         variant="contained"
                         startIcon={<ShoppingCartIcon/>}
                     >
-                        Добавить в корзину {totalCount >0 && `(${totalCount})`}
+                        Добавить в корзину {addedCount >0 && `(${addedCount})`}
                     </Button>
                 </CardActions>
 

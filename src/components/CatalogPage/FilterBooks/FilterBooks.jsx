@@ -2,10 +2,22 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import ArrowDropDownOutlinedIcon from '@material-ui/icons/ArrowDropDownOutlined';
+import {makeStyles} from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: "flex",
+        justifyContent: "center",
+        marginTop: '22px'
+    }
+}));
 
 function FilterBooks({setFilter}) {
-    const [anchorEl, setAnchorEl] = React.useState(null);
 
+    const classes = useStyles();
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -14,13 +26,15 @@ function FilterBooks({setFilter}) {
     };
 
     return (
-        <div>
+        <div className={classes.root}>
             <Button onClick={handleClick}>
-                Сортировать
+                Сортировать книги <ArrowDropDownOutlinedIcon/>
             </Button>
             <Menu
-                id="simple-menu" anchorEl={anchorEl} keepMounted
-                open={Boolean(anchorEl)} onClose={handleClose}
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
             >
                 <MenuItem onClick={setFilter.bind(this, 'all')}>Все</MenuItem>
                 <MenuItem onClick={setFilter.bind(this, 'popular')}>Популярные</MenuItem>

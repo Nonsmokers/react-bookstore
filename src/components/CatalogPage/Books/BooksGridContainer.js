@@ -1,4 +1,4 @@
-import {setBooks} from "../../actions/books";
+import {setBooks} from "../../../actions/books";
 import {connect} from "react-redux";
 import BooksGrid from "./BooksGrid";
 import orderBy from "lodash/orderBy";
@@ -19,7 +19,6 @@ const sortBy = (books, filterBy) => {
     }
 };
 
-
 const filterBooks = (books, searchQuery) => books.filter(
     b =>
         b.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
@@ -27,7 +26,7 @@ const filterBooks = (books, searchQuery) => books.filter(
 )
 
 const searchBooks = (books, filterBy, searchQuery) => {
-    return sortBy(filterBooks(books, searchQuery),filterBy)
+    return sortBy(filterBooks(books, searchQuery), filterBy)
 }
 
 const mapStateToProps = (state) => ({

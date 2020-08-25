@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {setFilter} from "../../actions/filter";
+import {setFilter} from "../../../actions/filter";
 import FilterBooks from "./FilterBooks";
 
 const mapStateToProps = (state) => ({

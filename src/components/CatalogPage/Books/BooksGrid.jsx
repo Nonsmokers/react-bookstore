@@ -1,5 +1,5 @@
 import React from 'react';
-import s from "../../App.module.css";
+import s from "../../../App.module.css";
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import CircularProgress from "@material-ui/core/CircularProgress";
