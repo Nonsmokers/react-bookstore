@@ -14,7 +14,7 @@ const BookCard = book => {
     const {image,title,author,price,addBookToCart,addedCount} = book;
     return (
         <Card className={s.root}>
-            <CardActionArea>
+            <CardActionArea >
                 <CardMedia
                     className={s.media}
                     image={image}

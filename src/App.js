@@ -11,10 +11,10 @@ function App() {
                 <HeaderContainer/>
                 <div>
                     <Switch>
-                        <Route path='/' exact component={CatalogPage}/>
                         <Route path='/home' exact component={HomePage}  />
-                        {/*<Route path='/about' component={About}/>
-                        <Route path='/profile/:name' component={Profile}/>*/}
+                        <Route path='/catalog' exact component={CatalogPage}/>
+{/*                        <Route path='/cart' component={Cart}/>
+                        <Route path='/profile' component={Profile}/>*/}
                     </Switch>
                 </div>
             </HashRouter>

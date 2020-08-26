@@ -1,3 +1,6 @@
+a{
+    text-decoration: none;
+}
 .icon {
     margin-right: 5%;
 }
@@ -9,7 +12,6 @@
     margin-top: 4%;
 }
 .cardGrid {
-    max-width: 1200px;
     padding-top: 2%;
     padding-bottom: 2%;
 }

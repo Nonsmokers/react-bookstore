@@ -1,8 +1,8 @@
 .root {
-    max-width: 400px;
+    max-width: 500px;
 }
 .media {
-    height: 500px;
+    height: 400px;
     background-size: cover;
 }
 .price {
