@@ -14,6 +14,9 @@ const sortBy = (books, filterBy) => {
         case 'author': {
             return orderBy(books, 'author', 'asc');
         }
+        case 'popular': {
+            return orderBy(books, 'rating', 'desc');
+        }
         default :
             return books;
     }

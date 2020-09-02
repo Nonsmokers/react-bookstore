@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import {setBooks} from "../../actions/books";
 import Footer from "../../components/CatalogPage/Footer/Footer";
-import SortBooks from "../../components/CatalogPage/FilterBooks/FilterBooksContainer";
+import SortBooks from "./SortBooks/SortBooksContainer";
 import BooksGridContainer from "../../components/CatalogPage/Books/BooksGridContainer";
 import * as axios from "axios";
 
@@ -13,14 +13,15 @@ class CatalogPage extends React.Component {
             setBooks(response.data)
         })
     }
+
     render() {
         return (
-            <div>
-                <SortBooks/>
-                <BooksGridContainer/>
-                <Footer/>
-                }
-            </div>
+                <div>
+                    <SortBooks/>
+                    <BooksGridContainer/>
+                    <Footer/>
+                    }
+                </div>
         );
     }
 }

@@ -1,15 +1,29 @@
 .root {
     max-width: 500px;
 }
+.content{
+    padding: 8px 0 0 10px;
+}
 .media {
     height: 400px;
     background-size: cover;
 }
 .price {
     display: flex;
-    padding: 8px;
+    padding: 8px 0 0 12px;
     align-items: center;
 }
 .addCardButton{
     width: 100%;
+}
+.rating{
+    display: flex;
+    padding-left: 12px;
+    align-items: center;
+}
+.title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
 }

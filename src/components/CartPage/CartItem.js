@@ -1,28 +1,27 @@
 import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
-import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import DeleteIcon from '@material-ui/icons/Delete';
+import {removeBookFromCart} from "../../actions/cart";
 
-const CartHeader = (props) => {
+
+const CartItem = (props) => {
     return (
-
-        <List>
-
             <ListItem>
+                <img src={props.image} />
                 <ListItemText primary={props.title}/>
                 <ListItemSecondaryAction>
-                    <IconButton edge="end">
-                        <DeleteIcon/>
+                    <IconButton edge="end" onClick={removeBookFromCart}>
+                        <DeleteIcon onClick={removeBookFromCart}/>
                     </IconButton>
                 </ListItemSecondaryAction>
             </ListItem>
-        </List>
+
     )
 }
 
-export default CartHeader;
+export default CartItem;
 
 

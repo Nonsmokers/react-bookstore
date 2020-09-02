@@ -1,0 +1,15 @@
+import {connect} from "react-redux";
+import CartPage from "./CartPage";
+import {removeBookFromCart} from "../../actions/cart";
+
+const mapStateToProps = (state) => ({
+    totalPrice: state.cartReducer.items.reduce((total, book) => total + book.price, 0),
+    count: state.cartReducer.items.length,
+    items: state.cartReducer.items
+});
+
+const mapDispatchToProps = dispatch => ({
+    removeBookFromCart: id => dispatch(removeBookFromCart(id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartPage);

@@ -14,7 +14,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import Typography from "@material-ui/core/Typography";
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
-import logo from '../../../accets/img/logo.png'
+import logo from '../../accets/img/logo.png'
 
 const useStyles = makeStyles((theme) => ({
     list: {
@@ -32,8 +32,10 @@ const useStyles = makeStyles((theme) => ({
     logo: {
         height: ' 120px',
         width: '140px'
+    },
+    sidebarText:{
+        color: '#9aa68f',
     }
-
 }))
 
 const Sidebar = () => {
@@ -54,6 +56,7 @@ const Sidebar = () => {
             <div className={classes.logoContainer}>
                 <img src={logo} alt='logo' className={classes.logo}/>
             </div>
+            &nbsp;
             <NavLink exact to="/home" className={classes.sidebarText}>
                 <ListItem button onClick={handleNavbarOpen}>
                     <ListItemIcon>
@@ -66,7 +69,7 @@ const Sidebar = () => {
                     </ListItemText>
                 </ListItem>
             </NavLink>
-            <NavLink exact to="/catalog">
+            <NavLink exact to="/catalog" className={classes.sidebarText}>
                 <ListItem button onClick={handleNavbarOpen}>
                     <ListItemIcon>
                         <MenuBookOutlinedIcon/>
@@ -78,7 +81,7 @@ const Sidebar = () => {
                     </ListItemText>
                 </ListItem>
             </NavLink>
-            <NavLink exact to="/cart">
+            <NavLink exact to="/cart" className={classes.sidebarText}>
                 <ListItem button onClick={handleNavbarOpen}>
                     <ListItemIcon>
                         <ShoppingCartOutlinedIcon/>
@@ -91,7 +94,7 @@ const Sidebar = () => {
                 </ListItem>
             </NavLink>
             <Divider/>
-            <NavLink exact to="/version">
+            <NavLink exact to="/settings" className={classes.sidebarText}>
                 <ListItem button onClick={handleNavbarOpen}>
                     <ListItemIcon>
                         <SettingsOutlinedIcon/>

@@ -13,28 +13,24 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function FilterBooks({setFilter}) {
-
+function SortBooks({setFilter}) {
     const classes = useStyles();
-
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const handleClick = (event) => {
+
+    const SortMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
-    const handleClose = () => {
+    const SortMenuClose = () => {
         setAnchorEl(null);
     };
 
     return (
         <div className={classes.root}>
-            <Button onClick={handleClick}>
+            <Button onClick={SortMenuOpen}>
                 Сортировать книги <ArrowDropDownOutlinedIcon/>
             </Button>
-            <Menu
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
+            <Menu anchorEl={anchorEl} keepMounted
+                  open={Boolean(anchorEl)} onClose={SortMenuClose}
             >
                 <MenuItem onClick={setFilter.bind(this, 'all')}>Все</MenuItem>
                 <MenuItem onClick={setFilter.bind(this, 'popular')}>Популярные</MenuItem>
@@ -46,4 +42,4 @@ function FilterBooks({setFilter}) {
     );
 }
 
-export default FilterBooks;
+export default SortBooks;

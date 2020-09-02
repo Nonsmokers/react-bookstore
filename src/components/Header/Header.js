@@ -4,23 +4,24 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import Popover from "@material-ui/core/Popover";
 import CartHeader from "./CartHeader";
 import InputHeader from "./InputHeader";
 import Sidebar from "./SidebarHeader";
+import {NavLink} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
+    cart: {
+        color: 'rgba(0, 0, 0, 0.54)'
+    },
     grow: {
         flexGrow: 1,
     },
     header: {
-        backgroundColor: '#9aa68f',
+        backgroundColor: '#C9D5B1',
     },
     title: {
         display: 'none',
@@ -46,11 +47,9 @@ const Header = (props) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-    const [PopoverOpen, setPopoverOpen] = React.useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-    const isPopoverOpen = Boolean(PopoverOpen);
 
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
@@ -65,12 +64,6 @@ const Header = (props) => {
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
     };
-    const handlePopoverOpen = (event) => {
-        setPopoverOpen(event.currentTarget);
-    };
-    const handlePopoverClose = () => {
-        setPopoverOpen(null);
-    };
 
     const renderMenu = (
         <Menu
@@ -81,8 +74,9 @@ const Header = (props) => {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            <MenuItem onClick={handleMenuClose}>Профиль</MenuItem>
+            <MenuItem onClick={handleMenuClose}>Заказы</MenuItem>
+            <MenuItem onClick={handleMenuClose}></MenuItem>
         </Menu>
     );
     const renderMobileMenu = (
@@ -93,24 +87,12 @@ const Header = (props) => {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <MenuItem onClick={handlePopoverOpen}>
-                <IconButton color="inherit">
-                    <Badge badgeContent={props.count} color="secondary">
-                        <ShoppingCartIcon/>
-                    </Badge>
-                </IconButton>
-                <p>ShoppingCartIcon</p>
-            </MenuItem>
-            <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit"
-                >
-                    <AccountCircle/>
-                </IconButton>
-                <p>Profile</p>
-            </MenuItem>
+            <NavLink to={'/Cart'} className={classes.cart}>
+                <MenuItem >
+                    <CartHeader count={props.count}/>
+                    <p>Корзина</p>
+                </MenuItem>
+            </NavLink>
         </Menu>
     );
 
@@ -129,25 +111,11 @@ const Header = (props) => {
                     </Typography>
                     <InputHeader setSearchQuery={props.setSearchQuery}/>
                     <div className={classes.grow}/>
-                    <div className={classes.sectionDesktop}>
-                        <IconButton color="inherit"
-                                    onClick={handlePopoverOpen}>
-                            <Badge badgeContent={props.count} color="secondary">
-                                <ShoppingCartIcon/>
-                            </Badge>
-                        </IconButton>
-                    </div>
-                    &nbsp;
-                    <Popover
-                        anchorEl={PopoverOpen}
-                        anchorOrigin={{vertical: 'top', horizontal: 'right'}}
-                        transformOrigin={{vertical: 'top', horizontal: 'right'}}
-                        open={isPopoverOpen}
-                        onClose={handlePopoverClose}
-                    >
-                        {props.items.map(book => <CartHeader key={book} title={props.title}/>)}
-
-                    </Popover>
+                    <NavLink to={'/Cart'}>
+                        <div className={classes.sectionDesktop}>
+                            <CartHeader count={props.count}/>
+                        </div>
+                    </NavLink>&nbsp;
                     <Typography className={classes.title} variant="h6" noWrap>
                         Итого: &nbsp;  <b>{props.totalPrice}</b> &nbsp; руб.
                     </Typography>
