@@ -8,14 +8,9 @@ const useStyles = createUseStyles({
     root: {},
     wrapper: {
         display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '500px',
-    },
-    wrapperTitle: {
-        marginTop: '20px',
-        color: '#9aa68f',
+        minHeight: '570px',
     }
 })
 

@@ -88,7 +88,7 @@ const Header = (props) => {
             onClose={handleMobileMenuClose}
         >
             <NavLink to={'/Cart'} className={classes.cart}>
-                <MenuItem >
+                <MenuItem>
                     <CartHeader count={props.count}/>
                     <p>Корзина</p>
                 </MenuItem>
