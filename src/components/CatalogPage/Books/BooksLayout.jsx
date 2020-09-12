@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import BookCardContainer from "./BookCardContainer";
 
-const BooksGrid = (props) => {
+const BooksLayout = (props) => {
     return (
         <Container maxWidth="md">
             <Grid container spacing={6} className={s.cardGrid}>
@@ -21,4 +21,4 @@ const BooksGrid = (props) => {
     );
 }
 
-export default BooksGrid;
+export default BooksLayout;

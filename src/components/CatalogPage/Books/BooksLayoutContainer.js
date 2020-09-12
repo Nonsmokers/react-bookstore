@@ -1,6 +1,6 @@
 import {setBooks} from "../../../actions/books";
 import {connect} from "react-redux";
-import BooksGrid from "./BooksGrid";
+import BooksLayout from "./BooksLayout";
 import orderBy from "lodash/orderBy";
 
 const sortBy = (books, filterBy) => {
@@ -45,4 +45,4 @@ const mapDispatchToProps = dispatch => ({
     setBooks: books => dispatch(setBooks(books))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(BooksGrid);
+export default connect(mapStateToProps, mapDispatchToProps)(BooksLayout);

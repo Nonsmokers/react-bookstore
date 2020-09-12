@@ -1,10 +1,11 @@
 import React from 'react';
+import * as axios from "axios";
 import {connect} from "react-redux";
 import {setBooks} from "../../actions/books";
 import Footer from "../../components/CatalogPage/Footer/Footer";
 import SortBooks from "./SortBooks/SortBooksContainer";
-import BooksGridContainer from "../../components/CatalogPage/Books/BooksGridContainer";
-import * as axios from "axios";
+import BooksGridContainer from "./Books/BooksLayoutContainer";
+import {removeBookFromCart} from "../../actions/cart";
 
 class CatalogPage extends React.Component {
     componentWillMount() {
@@ -26,16 +27,12 @@ class CatalogPage extends React.Component {
     }
 }
 
-const mapStateToProps = () => ({
-    /* initialized: state.app.initialized */
-});
-
 const mapDispatchToProps = dispatch => ({
-    setBooks: books => dispatch(setBooks(books))
+    setBooks: books => dispatch(setBooks(books)),
+    removeBookFromCart: id => dispatch(removeBookFromCart(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CatalogPage);
-
+export default connect(null, mapDispatchToProps)(CatalogPage);
 
 
 

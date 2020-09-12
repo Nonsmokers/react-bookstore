@@ -1,26 +1,37 @@
-a{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+a, h1, h2, h3, h4, h5, p {
     text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    color: #5c6251;
 }
+
 .icon {
     margin-right: 5%;
 }
+
 .heroContent {
     background-color: #f1d6b1;
     padding: 8% 0 6% 0;
 }
+
 .heroButtons {
     margin-top: 4%;
 }
+
 .cardGrid {
     padding-top: 2%;
     padding-bottom: 2%;
 }
+
 .cardMedia {
     padding-top: 56.25%
 }
+
 .cardContent {
     flex-grow: 2
 }
+
 .preloader {
     display: flex;
     align-items: center;

@@ -1,25 +1,25 @@
 import React from 'react';
+import {Route, Switch} from "react-router-dom";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import CatalogPage from "./components/CatalogPage/CatalogPage";
-import {HashRouter, Route, Switch} from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
-import Settings from "./components/SettingsPage/Settings";
+import SettingsPage from "./components/SettingsPage/SettingsPage";
 import CartPageContainer from "./components/CartPage/CartPageContainer";
+import ItemPageContainer from "./components/ItemPage/ItemPageContainer";
 
 function App() {
     return (
         <>
-            <HashRouter>
-                <HeaderContainer/>
-                <div>
-                    <Switch>
-                        <Route path='/home' exact render={() => <HomePage/>}/>
-                        <Route path='/catalog' render={() => <CatalogPage/>}/>
+            <HeaderContainer/>
+            <div>
+                <Switch>
+                        <Route exact path='/' render={() => <HomePage/>}/>
+                        <Route exact path='/books' render={() => <CatalogPage/>}/>
+                        <Route path='/books/:id?' render={(props) => <ItemPageContainer {...props}/>}/>
                         <Route path='/cart' render={() => <CartPageContainer/>}/>
-                        <Route path='/settings' render={() => <Settings/>}/>
-                    </Switch>
-                </div>
-            </HashRouter>
+                        <Route path='/settings' render={() => <SettingsPage/>}/>
+                </Switch>
+            </div>
         </>
     );
 }

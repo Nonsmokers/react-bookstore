@@ -8,9 +8,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import CartHeader from "./CartHeader";
-import InputHeader from "./InputHeader";
-import Sidebar from "./SidebarHeader";
+import HeaderCart from "./HeaderCart";
+import HeaderInput from "./HeaderInput";
+import Sidebar from "../Sidebar/Sidebar";
 import {NavLink} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     header: {
-        backgroundColor: '#C9D5B1',
+        backgroundColor: '#626856',
     },
     title: {
         display: 'none',
@@ -76,7 +76,6 @@ const Header = (props) => {
         >
             <MenuItem onClick={handleMenuClose}>Профиль</MenuItem>
             <MenuItem onClick={handleMenuClose}>Заказы</MenuItem>
-            <MenuItem onClick={handleMenuClose}></MenuItem>
         </Menu>
     );
     const renderMobileMenu = (
@@ -89,7 +88,7 @@ const Header = (props) => {
         >
             <NavLink to={'/Cart'} className={classes.cart}>
                 <MenuItem>
-                    <CartHeader count={props.count}/>
+                    <HeaderCart count={props.count}/>
                     <p>Корзина</p>
                 </MenuItem>
             </NavLink>
@@ -109,15 +108,15 @@ const Header = (props) => {
                     <Typography className={classes.title} variant="h6" noWrap>
                         React-bookstore
                     </Typography>
-                    <InputHeader setSearchQuery={props.setSearchQuery}/>
+                    <HeaderInput setSearchQuery={props.setSearchQuery}/>
                     <div className={classes.grow}/>
                     <NavLink to={'/Cart'}>
                         <div className={classes.sectionDesktop}>
-                            <CartHeader count={props.count}/>
+                            <HeaderCart count={props.count}/>
                         </div>
                     </NavLink>&nbsp;
                     <Typography className={classes.title} variant="h6" noWrap>
-                        Итого: &nbsp;  <b>{props.totalPrice}</b> &nbsp; руб.
+                        Итого:&nbsp;<b>{props.totalPrice}</b>&nbsp;руб.
                     </Typography>
                     <div className={classes.sectionDesktop}>
                         <IconButton

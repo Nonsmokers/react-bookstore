@@ -1,11 +1,11 @@
 import {SET_FILTER, SET_SEARCH_QUERY} from '../actions/actionTypes'
 
-let initial_state = {
+let initialState = {
     searchQuery: '',
     filterBy: 'all'
 }
 
-const filterReducer = (state = initial_state, action) => {
+const filterReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_SEARCH_QUERY: {
             return {

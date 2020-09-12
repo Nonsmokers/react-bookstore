@@ -1,6 +1,5 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import {makeStyles} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -15,31 +14,9 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import Typography from "@material-ui/core/Typography";
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import logo from '../../accets/img/logo.png'
-
-const useStyles = makeStyles((theme) => ({
-    list: {
-        width: 250,
-        textDecoration: 'none',
-    },
-    menuButton: {
-        marginRight: theme.spacing(2),
-    },
-    logoContainer: {
-        display: "flex",
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    logo: {
-        height: ' 120px',
-        width: '140px'
-    },
-    sidebarText:{
-        color: '#9aa68f',
-    }
-}))
+import s from './Sidebar.module.css'
 
 const Sidebar = () => {
-    const classes = useStyles();
     const [navbarOpen, setNavbarOpen] = React.useState(null);
 
     const isNavbarOpen = Boolean(navbarOpen);
@@ -52,12 +29,12 @@ const Sidebar = () => {
     };
 
     const list = () => (
-        <List className={classes.list}>
-            <div className={classes.logoContainer}>
-                <img src={logo} alt='logo' className={classes.logo}/>
+        <List className={s.list}>
+            <div className={s.logoContainer}>
+                <img src={logo} alt='logo' className={s.logo}/>
             </div>
             &nbsp;
-            <NavLink exact to="/home" className={classes.sidebarText}>
+            <NavLink exact to="/" className={s.sidebarText}>
                 <ListItem button onClick={handleNavbarOpen}>
                     <ListItemIcon>
                         <HomeOutlinedIcon/>
@@ -69,7 +46,7 @@ const Sidebar = () => {
                     </ListItemText>
                 </ListItem>
             </NavLink>
-            <NavLink exact to="/catalog" className={classes.sidebarText}>
+            <NavLink exact to="/books" className={s.sidebarText}>
                 <ListItem button onClick={handleNavbarOpen}>
                     <ListItemIcon>
                         <MenuBookOutlinedIcon/>
@@ -81,7 +58,7 @@ const Sidebar = () => {
                     </ListItemText>
                 </ListItem>
             </NavLink>
-            <NavLink exact to="/cart" className={classes.sidebarText}>
+            <NavLink exact to="/cart" className={s.sidebarText}>
                 <ListItem button onClick={handleNavbarOpen}>
                     <ListItemIcon>
                         <ShoppingCartOutlinedIcon/>
@@ -94,7 +71,7 @@ const Sidebar = () => {
                 </ListItem>
             </NavLink>
             <Divider/>
-            <NavLink exact to="/settings" className={classes.sidebarText}>
+            <NavLink exact to="/settings" className={s.sidebarText}>
                 <ListItem button onClick={handleNavbarOpen}>
                     <ListItemIcon>
                         <SettingsOutlinedIcon/>
@@ -115,7 +92,7 @@ const Sidebar = () => {
                     <IconButton
                         onClick={handleNavbarOpen}
                         edge="start"
-                        className={classes.menuButton}
+                        className={s.menuButton}
                         color="inherit"
                     >
                         <MenuIcon/>

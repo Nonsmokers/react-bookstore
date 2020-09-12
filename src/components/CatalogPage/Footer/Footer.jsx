@@ -14,11 +14,8 @@ const Footer = () => {
 
     return (
         <footer className={classes.footer}>
-            <Typography variant="h6" align="center" gutterBottom>
-                Footer
-            </Typography>
             <Typography variant="body2" color="textSecondary" align="center">
-                {'Copyright © '}
+                {'React-bookstore'}
                 <Typography variant="body2" color="textSecondary" align="center">
                     {'https://github.com/Nonsmokers'}
                 </Typography>

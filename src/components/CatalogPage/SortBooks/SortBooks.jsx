@@ -10,6 +10,12 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         justifyContent: "center",
         marginTop: '22px'
+    },
+    button: {
+        color: '#5c6251'
+    },
+    item: {
+        color: '5c6251'
     }
 }));
 
@@ -26,17 +32,17 @@ function SortBooks({setFilter}) {
 
     return (
         <div className={classes.root}>
-            <Button onClick={SortMenuOpen}>
+            <Button onClick={SortMenuOpen} className={classes.button}>
                 Сортировать книги <ArrowDropDownOutlinedIcon/>
             </Button>
             <Menu anchorEl={anchorEl} keepMounted
                   open={Boolean(anchorEl)} onClose={SortMenuClose}
             >
-                <MenuItem onClick={setFilter.bind(this, 'all')}>Все</MenuItem>
-                <MenuItem onClick={setFilter.bind(this, 'popular')}>Популярные</MenuItem>
-                <MenuItem onClick={setFilter.bind(this, 'price_high')}>Цене(убывание)</MenuItem>
-                <MenuItem onClick={setFilter.bind(this, 'price_low')}>Цене(возрастанение)</MenuItem>
-                <MenuItem onClick={setFilter.bind(this, 'author')}>Автор</MenuItem>
+                <MenuItem className={classes.item} onClick={setFilter.bind(this, 'all')}>Все</MenuItem>
+                <MenuItem className={classes.item} onClick={setFilter.bind(this, 'popular')}>Популярные</MenuItem>
+                <MenuItem className={classes.item} onClick={setFilter.bind(this, 'price_high')}>Цене(убывание)</MenuItem>
+                <MenuItem className={classes.item} onClick={setFilter.bind(this, 'price_low')}>Цене(возрастанение)</MenuItem>
+                <MenuItem className={classes.item} onClick={setFilter.bind(this, 'author')}>Автор</MenuItem>
             </Menu>
         </div>
     );

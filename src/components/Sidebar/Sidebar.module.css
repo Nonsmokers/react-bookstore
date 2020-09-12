@@ -1,0 +1,22 @@
+.list {
+    width: 250px;
+}
+
+.menuButton {
+    margin-right: 10px;
+}
+
+.logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    height: 120px;
+    width: 140px;
+}
+
+.sidebarText {
+    color: #626856;
+}

@@ -4,7 +4,7 @@ import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 
-const CartHeader = (props) => {
+const HeaderCart = (props) => {
     return (
         <IconButton >
             <Badge badgeContent={props.count} color="secondary">
@@ -14,6 +14,6 @@ const CartHeader = (props) => {
     )
 }
 
-export default CartHeader;
+export default HeaderCart;
 
 

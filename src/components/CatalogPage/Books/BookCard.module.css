@@ -1,6 +1,9 @@
 .root {
     max-width: 500px;
+    color: #5c6251;
+    text-decoration: none;
 }
+
 .content{
     padding: 8px 0 0 10px;
 }

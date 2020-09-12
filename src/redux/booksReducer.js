@@ -2,12 +2,12 @@ import {SET_BOOK} from '../actions/actionTypes'
 import {SET_IS_READY} from '../actions/actionTypes'
 import {SET_FILTER} from '../actions/actionTypes'
 
-let initial_state = {
+let initialState = {
     isReady: false,
     items: null
 }
 
-const booksReducer = (state = initial_state, action) => {
+const booksReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_BOOK: {
             return {
@@ -32,4 +32,5 @@ const booksReducer = (state = initial_state, action) => {
             return state;
     }
 }
+
 export default booksReducer;
