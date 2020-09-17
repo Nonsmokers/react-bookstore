@@ -19,7 +19,7 @@ const BookCard = book => {
     const {id, image, title, author, rating, price, addBookToCart, addedCount} = book;
 
     return (
-        <Card className={s.root}>
+        <Card className={s.root} elevation={3}>
             <NavLink to={`/books/${id}`}>
                 <CardActionArea>
                     <CardMedia className={s.media} image={image}/>

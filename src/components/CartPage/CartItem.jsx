@@ -1,7 +1,5 @@
 import React from 'react';
-import IconButton from '@material-ui/core/IconButton';
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
+import {IconButton, ListItemText, ListItem} from '@material-ui/core';
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import DeleteIcon from '@material-ui/icons/Delete';
 import {removeBookFromCart} from "../../actions/cart";

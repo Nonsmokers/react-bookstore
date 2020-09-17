@@ -10,10 +10,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+.logoContainer h3{
+    margin-top: 0;
 }
 
 .logo {
-    height: 120px;
+    height: 100px;
     width: 140px;
 }
 

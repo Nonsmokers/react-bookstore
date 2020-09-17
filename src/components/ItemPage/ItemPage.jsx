@@ -3,11 +3,10 @@ import vector from '../../accets/img/vector.svg'
 import s from './ItemPage.module.css'
 import {NavLink} from "react-router-dom";
 import LocalOfferIcon from "@material-ui/icons/LocalOffer";
-import Button from "@material-ui/core/Button";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import Rating from "@material-ui/lab/Rating";
-import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
+import {Button, createMuiTheme, ThemeProvider} from "@material-ui/core";
 
 const theme = createMuiTheme({palette: {primary: {main: '#8c957b'}, secondary: {main: '#626856'}}});
 const ItemPage = (props) => {

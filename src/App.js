@@ -16,7 +16,7 @@ function App() {
                         <Route exact path='/' render={() => <HomePage/>}/>
                         <Route exact path='/books' render={() => <CatalogPage/>}/>
                         <Route path='/books/:id?' render={(props) => <ItemPageContainer {...props}/>}/>
-                        <Route path='/cart' render={() => <CartPageContainer/>}/>
+                        <Route path='/cart' render={(book) => <CartPageContainer {...book}/>}/>
                         <Route path='/settings' render={() => <SettingsPage/>}/>
                 </Switch>
             </div>

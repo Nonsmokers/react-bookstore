@@ -1,20 +1,35 @@
 import React from 'react';
-import {List} from "@material-ui/core";
 import CartEmpty from "./CartEmpty";
-import Typography from "@material-ui/core/Typography";
 import CartListContainer from "./CartListContainer";
+import CartForm from "./CartForm";
+import {makeStyles, List} from "@material-ui/core";
 
+const useStyles = makeStyles(() => ({
+    wrapper: {
+        display: "flex",
+        width: '100%'
+    },
+    form: {
+        width: '40%'
+    }
+}))
 const CartPage = (props) => {
+
+    const classes = useStyles();
     return (
         <>
-            {props.count === 0 ? <CartEmpty/> :
-                <List>
-                    {props.items.map(book => <CartListContainer key={book} {...book} />)}
-                    <Typography variant="h6" noWrap>
-                        Итого:&nbsp;<b>{props.totalPrice}</b>&nbsp;руб.
-                    </Typography>
-                </List>
-            }
+            <div>
+                {props.count === 0 ? <CartEmpty/> :
+                    <div className={classes.wrapper}>
+                        <List className={classes.list}>
+                            {props.items.map(book => <CartListContainer key={book} {...book} />)}
+                        </List>
+                        <div className={classes.form}>
+                            <CartForm count={props.count} totalPrice={props.totalPrice}/>
+                        </div>
+                    </div>
+                }
+            </div>
         </>
     );
 }

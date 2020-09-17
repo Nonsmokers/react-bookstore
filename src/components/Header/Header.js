@@ -101,7 +101,6 @@ const Header = (props) => {
                     className={classes.header}>
                 <Toolbar>
                     <Sidebar edge="start"
-                             className={classes.menuButton}
                              color="inherit">
                     </Sidebar>
 
