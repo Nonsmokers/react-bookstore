@@ -53,8 +53,3 @@ const ItemPage = (props) => {
 }
 
 export default ItemPage;
-
-
-
-
-

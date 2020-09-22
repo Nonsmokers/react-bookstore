@@ -1,30 +1,21 @@
 import React from 'react';
 import CartEmpty from "./CartEmpty";
-import CartListContainer from "./CartListContainer";
+import CartListContainer from "./CartListItemContainer";
 import CartForm from "./CartForm";
-import {makeStyles, List} from "@material-ui/core";
+import {List} from "@material-ui/core";
+import s from "./CartPage.module.css";
 
-const useStyles = makeStyles(() => ({
-    wrapper: {
-        display: "flex",
-        width: '100%'
-    },
-    form: {
-        width: '40%'
-    }
-}))
 const CartPage = (props) => {
 
-    const classes = useStyles();
     return (
         <>
-            <div>
+            <div className={s.root}>
                 {props.count === 0 ? <CartEmpty/> :
-                    <div className={classes.wrapper}>
-                        <List className={classes.list}>
+                    <div className={s.wrapper}>
+                        <List className={s.list}>
                             {props.items.map(book => <CartListContainer key={book} {...book} />)}
                         </List>
-                        <div className={classes.form}>
+                        <div className={s.form}>
                             <CartForm count={props.count} totalPrice={props.totalPrice}/>
                         </div>
                     </div>
@@ -33,5 +24,7 @@ const CartPage = (props) => {
         </>
     );
 }
+
+
 
 export default CartPage;

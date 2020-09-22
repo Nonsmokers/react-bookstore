@@ -5,7 +5,6 @@
     min-height: 50vh;
     margin: 0 15px 0 0;
 }
-
 .wrapperCard {
     display: flex;
     flex-direction: column;
@@ -14,31 +13,26 @@
     box-shadow: 0 2px 10px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
     0 1px 3px 0 rgba(0, 0, 0, 0.12) !important;
 }
-
 .item {
     display: flex;
     justify-content: center;
     padding: 6px 0;
     text-align: center;
 }
-
 .itemSelectWrapper {
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 6px 0;
 }
-
 .itemSelect {
     width: 66%;
 }
-
 .formControl {
     margin: 20px;
     min-width: 120px;
     width: 100%;
 }
-
 .itemPrice {
     display: flex;
     flex-direction: column;
@@ -46,15 +40,11 @@
     padding-top: 10px;
     padding-bottom: 5px;
 }
-
 .itemPrice h5 {
     margin: 5px 0;
 }
 .itemPrice:first-child {
     margin-top: 15px;
-}
-.buttonWrapper{
-    width: 100%;
 }
 .buttonWrapper button{
     width: 100%;

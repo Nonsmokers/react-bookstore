@@ -2,7 +2,7 @@ import React from "react";
 import * as axios from "axios";
 import {connect} from "react-redux";
 import {setBooks} from "../../actions/books";
-import find from "lodash/find";
+import find from "lodash";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ItemPage from "./ItemPage";
 import {addBookToCart} from "../../actions/cart";

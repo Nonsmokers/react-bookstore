@@ -4,11 +4,10 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import DeleteIcon from '@material-ui/icons/Delete';
 import {removeBookFromCart} from "../../actions/cart";
 
-
 const CartItem = (props) => {
     return (
             <ListItem>
-                <img src={props.image} />
+                <img src={props.image} alt={'main_image'}/>
                 <ListItemText primary={props.title}/>
                 <ListItemSecondaryAction>
                     <IconButton edge="end" onClick={removeBookFromCart}>
