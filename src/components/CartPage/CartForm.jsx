@@ -20,11 +20,6 @@ const defaultValues = {
     email: "",
     FormSelect: ""
 };
-const options = [
-    {value: "post", label: "Почтой"},
-    {value: "delivery: ", label: "Доставка курьером"},
-    {value: "pickup", label: "Самовывоз"}
-]
 
 const CartForm = (props) => {
 
@@ -32,16 +27,17 @@ const CartForm = (props) => {
     const [open, setOpen] = React.useState(false);
 
     const onSubmit = (values) => {
-        console.log(values)
+        console.log(values);
         reset(defaultValues);
-        onSnackbarsOpen()
+        onSnackbarsOpen();
+        props.removeBookFromCart()
     };
 
     const onSnackbarsOpen = () => {
         setOpen(true);
     };
     const onSnackbarsClose = (event, reason) => {
-        if (reason === 'clickaway') {
+        if (reason === "clickaway") {
             return;
         }
         setOpen(false);
@@ -59,35 +55,62 @@ const CartForm = (props) => {
                             <ThemeProvider theme={theme}>
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <Grid container spacing={1} alignItems="flex-end" className={s.item}>
-                                        <Grid item><AccountCircle color={'secondary'}/></Grid>
+                                        <Grid item><AccountCircle color={"secondary"}/></Grid>
                                         <Grid item>
-                                            <Controller as={TextField} type={'text'}
-                                                        name='name' label="Фамилия Имя"
-                                                        control={control}
-                                                        ref={register({
-                                                            required: "this is a required",
-                                                            maxLength: {
-                                                                value: 2,
-                                                                message: "Max length is 2"
-                                                            }
-                                                        })}
+                                            <TextField type="text" name="name" label="Фамилия и имя"
+                                                       required
+                                                       inputRef={register({
+                                                           required: "Это поле обязательное",
+                                                           maxLength: {
+                                                               value: 15,
+                                                               message: "Максимальная длина 15"
+                                                           },
+                                                           minLength: {
+                                                               value: 2,
+                                                               message: "Минимальная длина 2"
+                                                           },
+                                                       })}
                                             />
-                                            {errors.firstName && <p>{errors.firstName.message}</p>}
+                                            {errors.name && <p className={s.error}>{errors.name.message}</p>}
                                         </Grid>
                                     </Grid>
                                     <Grid container spacing={1} alignItems="flex-end" className={s.item}>
                                         <Grid item><PhoneIcon color={'secondary'}/></Grid>
                                         <Grid item>
-                                            <Controller as={TextField} type="text"
-                                                        name="phone" label="Телефон"
-                                                        control={control} required/>
+                                            <TextField type="tel" name="phone" label="Телефон (ххх хх хх)"
+                                                       required
+                                                       inputRef={register({
+                                                           required: "Это поле обязательное",
+                                                           maxLength: {
+                                                               value: 12,
+                                                               message: "Максимальная длина 12"
+                                                           },
+                                                           minLength: {
+                                                               value: 9,
+                                                               message: "Минимальная длина 9"
+                                                           },
+                                                           pattern: {
+                                                               value: /^\(?([0-9]{3})\)?[-. ]?([0-9]{2})[-. ]?([0-9]{2})$/,
+                                                               message: "Введите в формате (ххх хх хх)"
+                                                           }
+                                                       })}/>
+                                            {errors.phone && <p className={s.error}>{errors.phone.message}</p>}
                                         </Grid>
                                     </Grid>
                                     <Grid container spacing={1} alignItems="flex-end" className={s.item}>
                                         <Grid item><MailIcon color={'secondary'}/></Grid>
                                         <Grid item>
-                                            <Controller as={TextField} type='email' name='email'
-                                                        label="Ваш e-mail" control={control} required/>
+                                            <TextField name='email'
+                                                       label="E-mail" required
+                                                       inputRef={register({
+                                                           required: "Это поле обязательное",
+                                                           pattern: {
+                                                               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                                                               message: "Введите корректный e-mail"
+                                                           }
+                                                       })}
+                                            />
+                                            {errors.email && <p className={s.error}>{errors.email.message}</p>}
                                         </Grid>
                                     </Grid>
                                     <Grid container spacing={1} alignItems="flex-end" item
@@ -96,12 +119,11 @@ const CartForm = (props) => {
                                         <Grid item className={s.itemSelect}>
                                             <FormControl spacing={1} className={s.formControl}>
                                                 <InputLabel>Способ доставки</InputLabel>
-                                                <Controller
-                                                    as={Select}
-                                                    options={options}
-                                                    name="FormSelect"
-                                                    isClearable
-                                                    control={control}
+                                                <Controller as={Select}
+                                                            name="FormSelect"
+                                                            control={control}
+                                                            isClearable
+                                                            required
                                                 >
                                                     <MenuItem value={'Почтой'}>Почтой</MenuItem>
                                                     <MenuItem value={'Доставка курьером'}>Доставка курьером</MenuItem>

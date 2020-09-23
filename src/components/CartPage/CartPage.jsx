@@ -1,9 +1,9 @@
 import React from 'react';
 import CartEmpty from "./CartEmpty";
 import CartListContainer from "./CartListItemContainer";
-import CartForm from "./CartForm";
 import {List} from "@material-ui/core";
 import s from "./CartPage.module.css";
+import CartFormContainer from "./CartFormContainer";
 
 const CartPage = (props) => {
 
@@ -16,7 +16,7 @@ const CartPage = (props) => {
                             {props.items.map(book => <CartListContainer key={book} {...book} />)}
                         </List>
                         <div className={s.form}>
-                            <CartForm count={props.count} totalPrice={props.totalPrice}/>
+                            <CartFormContainer />
                         </div>
                     </div>
                 }
