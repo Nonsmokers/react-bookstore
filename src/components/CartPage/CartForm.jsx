@@ -30,7 +30,7 @@ const CartForm = (props) => {
         console.log(values);
         reset(defaultValues);
         onSnackbarsOpen();
-        props.removeBookFromCart()
+        setTimeout(() => props.clearCart(), 2500)
     };
 
     const onSnackbarsOpen = () => {
@@ -48,9 +48,7 @@ const CartForm = (props) => {
             <div>
                 <div className={s.root}>
                     <div>
-                        <Typography variant="h6" noWrap>
-                            <h2>Оформление заказа</h2>
-                        </Typography>
+                        <Typography variant="h4" noWrap className={s.header}>Оформление заказа</Typography>
                         <Card className={s.wrapperCard}>
                             <ThemeProvider theme={theme}>
                                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -122,7 +120,6 @@ const CartForm = (props) => {
                                                 <Controller as={Select}
                                                             name="FormSelect"
                                                             control={control}
-                                                            isClearable
                                                             required
                                                 >
                                                     <MenuItem value={'Почтой'}>Почтой</MenuItem>
@@ -132,27 +129,27 @@ const CartForm = (props) => {
                                             </FormControl>
                                         </Grid>
                                     </Grid>
-                                    <Typography variant="h5" color={'secondary'} className={s.itemPrice}>
-                                        <h5>Всего товаров: <b>{props.count}</b></h5>
-                                        <h5>Итого: <b>{props.totalPrice}</b>руб.</h5>
-                                    </Typography>
+                                    <div color={'secondary'} className={s.itemPrice}>
+                                        <h4>Всего товаров: <b>{props.count}</b></h4>
+                                        <h4>Итого: <b>{props.totalPrice}</b>руб.</h4>
+                                    </div>
                                     <CardActions className={s.buttonWrapper}>
                                         <Button color={'primary'}
                                                 type="submit"
                                                 variant={"contained"}
                                         > Отправить заказ </Button>
                                     </CardActions>
-                                    <Snackbar open={open} autoHideDuration={6000} onClose={onSnackbarsClose}>
-                                        <Alert onClose={onSnackbarsClose} severity="success">
-                                            Заказ успешно выполнен!
-                                        </Alert>
-                                    </Snackbar>
                                 </form>
                             </ThemeProvider>
                         </Card>
                     </div>
                 </div>
             </div>
+            <Snackbar open={open} autoHideDuration={6000} onClose={onSnackbarsClose}>
+                <Alert onClose={onSnackbarsClose} severity="success">
+                    Заказ успешно выполнен!
+                </Alert>
+            </Snackbar>
         </>
     )
 }

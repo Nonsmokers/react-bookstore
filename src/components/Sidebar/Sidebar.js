@@ -1,7 +1,8 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import {Drawer, List, Divider, ListItem, ListItemIcon, IconButton, ListItemText, Typography
-        } from '@material-ui/core';
+import {
+    Drawer, List, Divider, ListItem, ListItemIcon, IconButton, ListItemText, Typography
+} from '@material-ui/core';
 import MenuIcon from "@material-ui/icons/Menu";
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import MenuBookOutlinedIcon from '@material-ui/icons/MenuBookOutlined';

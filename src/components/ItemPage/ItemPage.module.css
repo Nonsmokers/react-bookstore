@@ -60,6 +60,9 @@
 .rating{
     margin-top: 10px;
 }
+.add_book_button{
+    margin-right: 10px !important;
+}
 
 @media (max-width: 670px) {
     .wrapper {

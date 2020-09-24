@@ -13,7 +13,7 @@ const CartPage = (props) => {
                 {props.count === 0 ? <CartEmpty/> :
                     <div className={s.wrapper}>
                         <List className={s.list}>
-                            {props.items.map(book => <CartListContainer key={book} {...book} />)}
+                            {props.items.map((book,id) => <CartListContainer key={id} {...book} />)}
                         </List>
                         <div className={s.form}>
                             <CartFormContainer />

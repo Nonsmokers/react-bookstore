@@ -8,7 +8,7 @@ export const removeBookFromCart = id =>({
     payload: id
 });
 
-export const removeLastBookFromCart = id =>({
-    type: 'REMOVE_LAST_BOOK_FROM_CART',
+export const clearCart = id =>({
+    type: 'CLEAR_CART',
     payload: id
 });

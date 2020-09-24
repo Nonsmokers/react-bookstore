@@ -15,12 +15,13 @@ const Footer = () => {
     return (
         <footer className={classes.footer}>
             <Typography variant="body2" color="textSecondary" align="center">
-                {'React-bookstore'}
-                <Typography variant="body2" color="textSecondary" align="center">
-                    {'https://github.com/Nonsmokers'}
-                </Typography>
+                React-bookstore
+            </Typography>
+            <Typography variant="body2" color="textSecondary" align="center">
+                <a href={'https://github.com/Nonsmokers'}>https://github.com/Nonsmokers</a>
+            </Typography>
+            <Typography variant="body2" color="textSecondary" align="center">
                 {new Date().getFullYear()}
-                {'.'}
             </Typography>
         </footer>
     )

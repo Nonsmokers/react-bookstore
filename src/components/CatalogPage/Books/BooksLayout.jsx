@@ -11,8 +11,8 @@ const BooksLayout = (props) => {
             <Grid container spacing={6} className={s.cardGrid}>
                 {!props.isReady
                     ? <CircularProgress color="secondary" className={s.preloader}/>
-                    : props.books.map((card, i) => (
-                        <Grid item key={card} xs={12} sm={6} lg={4}>
+                    : props.books.map((card,id, i) => (
+                        <Grid item key={id} xs={12} sm={6} lg={4}>
                             <BookCardContainer key={i} {...card}/>
                         </Grid>
                     ))}

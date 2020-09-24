@@ -7,6 +7,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import Rating from "@material-ui/lab/Rating";
 import {Button, createMuiTheme, ThemeProvider} from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 
 const theme = createMuiTheme({palette: {primary: {main: '#8c957b'}, secondary: {main: '#626856'}}});
 const ItemPage = (props) => {
@@ -17,18 +18,19 @@ const ItemPage = (props) => {
                     <div className={s.card_title}>
                         <h1>{props.book.title}</h1>
                         <h2>{props.book.author}</h2>
-                        <p>{props.book.description}</p>
+                        <Typography>{props.book.description}</Typography>
                         <div className={s.rating}>
                             <Rating name="read-only" value={props.book.rating} readOnly/>
                         </div>
                         <div className={s.card_title_price}>
-                            <p><LocalOfferIcon/> &nbsp;Цена :&nbsp;<b>{props.book.price} ₽</b></p>
+                            <Typography><LocalOfferIcon/> &nbsp;Цена :&nbsp;<b>{props.book.price} ₽</b></Typography>
                         </div>
                         <div className={s.buttons_wrapper}>
                             <ThemeProvider theme={theme}>
                                 <Button
                                     onClick={props.addBookToCart.bind(this, props.book)}
                                     color="primary"
+                                    className={s.add_book_button}
                                     variant="contained"
                                     startIcon={<ShoppingCartIcon/>}
                                 > Добавить в корзину</Button>
@@ -53,3 +55,8 @@ const ItemPage = (props) => {
 }
 
 export default ItemPage;
+
+
+
+
+

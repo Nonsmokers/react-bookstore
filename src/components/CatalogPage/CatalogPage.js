@@ -21,7 +21,6 @@ class CatalogPage extends React.Component {
                     <SortBooks/>
                     <BooksGridContainer/>
                     <Footer/>
-                    }
                 </div>
         );
     }
