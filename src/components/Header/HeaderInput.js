@@ -48,7 +48,7 @@ const HeaderInput = (props) => {
                 <SearchIcon/>
             </div>
             <InputBase
-                placeholder="Введи запрос…"
+                placeholder="Поиск по каталогу…"
                 onChange={e => props.setSearchQuery(e.currentTarget.value)}
                 value={props.searchQuery}
                 classes={{

@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage/HomePage";
 import SettingsPage from "./components/SettingsPage/SettingsPage";
 import CartPageContainer from "./components/CartPage/CartPageContainer";
 import ItemPageContainer from "./components/ItemPage/ItemPageContainer";
+import AuthPage from "./components/AuthPage/AuthPage";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                         <Route path='/books/:id?' render={(props) => <ItemPageContainer {...props}/>}/>
                         <Route path='/cart' render={(book) => <CartPageContainer {...book}/>}/>
                         <Route path='/settings' render={() => <SettingsPage/>}/>
+                        <Route path='/auth' render={() => <AuthPage/>}/>
                 </Switch>
             </div>
         </>

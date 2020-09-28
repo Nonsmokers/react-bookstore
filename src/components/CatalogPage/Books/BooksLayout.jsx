@@ -8,7 +8,7 @@ import BookCardContainer from "./BookCardContainer";
 const BooksLayout = (props) => {
     return (
         <Container maxWidth="md">
-            <Grid container spacing={6} className={s.cardGrid}>
+            <Grid container spacing={4} className={s.cardGrid}>
                 {!props.isReady
                     ? <CircularProgress color="secondary" className={s.preloader}/>
                     : props.books.map((card,id, i) => (

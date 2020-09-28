@@ -1,12 +1,8 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import emptyCart from '../../accets/img/empty-cart.svg'
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import Button from "@material-ui/core/Button";
+import emptyCart from '../../../accets/img/empty-cart.svg'
+import {Card, CardActions, Button, Typography, createMuiTheme, ThemeProvider} from "@material-ui/core";
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import Typography from "@material-ui/core/Typography";
-import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
 import s from "./CartEmpty.module.css";
 
 const theme = createMuiTheme({palette: {primary: {main: '#8c957b'}}});

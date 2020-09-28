@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
     header: {
         backgroundColor: '#626856',
+        height: '60px'
     },
     title: {
         display: 'none',

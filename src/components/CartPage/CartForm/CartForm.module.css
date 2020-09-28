@@ -15,6 +15,7 @@
 }
 .header{
     margin: 15px 0 20px !important;
+    transition: all ease .5s;
 }
 .item {
     display: flex;
@@ -57,4 +58,13 @@
     color: red;
     font-size: 10px;
     margin-top: 0;
+}
+@media screen and (max-width: 768px) {
+    .root {
+        margin: 0 0 20px 0;
+    }
+    .header{
+        font-size: 1.8rem !important;
+        transition: all ease .5s;
+    }
 }

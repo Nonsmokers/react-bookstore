@@ -73,7 +73,8 @@ const Sidebar = () => {
                     <ListItemText>
                         <Typography variant="h5" color="textSecondary">
                             Настройки
-                        </Typography></ListItemText>
+                        </Typography>
+                    </ListItemText>
                 </ListItem>
             </NavLink>
         </List>

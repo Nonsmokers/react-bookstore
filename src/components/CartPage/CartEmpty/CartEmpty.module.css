@@ -24,6 +24,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .titleHeader {
@@ -33,9 +34,9 @@
 
 .titleDescription {
     color: #ababab;
-    margin: 5px 15px !important;
+    margin: 20px !important;
 }
 
-button {
+.button {
     margin-right: 10px;
 }

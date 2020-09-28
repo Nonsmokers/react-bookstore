@@ -1,8 +1,9 @@
 import React from 'react';
 import s from "./CartListItem.module.css";
-import {Card, CardContent, IconButton, ListItemText, ListItem,List} from "@material-ui/core";
+import {Card, CardContent, IconButton, ListItemText, ListItem, List} from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {NavLink} from "react-router-dom";
+import CardActionArea from "@material-ui/core/CardActionArea";
 
 const CartListItem = (props) => {
     return (
@@ -11,21 +12,23 @@ const CartListItem = (props) => {
                 <Card className={s.wrapper}>
                     <CardContent className={s.card}>
                         <List className={s.card_container}>
-                            <NavLink className={s.image} to={`/books/${props.id}`}>
-                                <img src={props.image} className={s.image} alt={'main'}/>
-                            </NavLink>
-                            <ListItem className={s.item}>
+                            <CardActionArea className={s.image_container}>
+                                <NavLink to={`/books/${props.id}`}>
+                                    <img src={props.image} className={s.image} alt={'main'}/>
+                                </NavLink>
+                            </CardActionArea>
+                            <ListItem className={s.item_title}>
                                 <ListItemText primary={props.title}/>
                                 <ListItemText primary={props.author}/>
                             </ListItem>
                             <ListItem className={s.item}>
-                                <ListItemText className={s.item} primary={`${props.price} руб.`}/>
+                                <ListItemText primary={`${props.price} руб.`}/>
                             </ListItem>
                             <ListItem className={s.item}>
-                                <ListItemText className={s.item} primary={`${props.addedCount} шт.`}/>
+                                <ListItemText primary={`${props.addedCount} шт.`}/>
                             </ListItem>
                             <ListItem className={s.button_wrapper}>
-                                <IconButton className={s.item} onClick={props.removeBookFromCart.bind(this, props.id)}>
+                                <IconButton onClick={props.removeBookFromCart.bind(this, props.id)}>
                                     <DeleteIcon/>
                                 </IconButton>
                             </ListItem>

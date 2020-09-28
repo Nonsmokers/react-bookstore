@@ -27,7 +27,7 @@ const BookCard = book => {
                         <Typography variant="h6" component="h5" className={s.title}>
                             {title}
                         </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
+                        <Typography variant="body2" component="p" color="textSecondary" >
                             {author}
                         </Typography>
                     </CardContent>

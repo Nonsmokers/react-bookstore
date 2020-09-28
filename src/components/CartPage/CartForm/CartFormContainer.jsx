@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {removeBookFromCart, clearCart} from "../../actions/cart";
+import {removeBookFromCart, clearCart} from "../../../actions/cart";
 import CartForm from "./CartForm";
 
 const mapStateToProps = (state) => ({
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
     removeBookFromCart: id => dispatch(removeBookFromCart(id)),
-    clearCart: id => dispatch(clearCart(id))
+    clearCart: () => dispatch(clearCart())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartForm);

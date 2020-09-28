@@ -1,15 +1,12 @@
 import React from 'react';
 import s from "./CartForm.module.css";
 import {Controller, useForm} from "react-hook-form";
-import {
-    Card, CardActions, MenuItem, FormControl, Button, Select, InputLabel, TextField, createMuiTheme,
-    ThemeProvider, Typography, Grid
-} from "@material-ui/core";
+import { Card, CardActions, MenuItem, FormControl, Button, Select, InputLabel, TextField, createMuiTheme,
+    ThemeProvider, Typography, Grid, Snackbar} from "@material-ui/core";
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import PhoneIcon from '@material-ui/icons/Phone';
 import MailIcon from '@material-ui/icons/Mail';
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
-import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
 
 const theme = createMuiTheme({palette: {primary: {main: '#8c957b'}, secondary: {main: '#626856'}}});
@@ -57,6 +54,7 @@ const CartForm = (props) => {
                                         <Grid item>
                                             <TextField type="text" name="name" label="Фамилия и имя"
                                                        required
+
                                                        inputRef={register({
                                                            required: "Это поле обязательное",
                                                            maxLength: {
@@ -145,7 +143,7 @@ const CartForm = (props) => {
                     </div>
                 </div>
             </div>
-            <Snackbar open={open} autoHideDuration={6000} onClose={onSnackbarsClose}>
+            <Snackbar open={open} autoHideDuration={4000} onClose={onSnackbarsClose}>
                 <Alert onClose={onSnackbarsClose} severity="success">
                     Заказ успешно выполнен!
                 </Alert>
