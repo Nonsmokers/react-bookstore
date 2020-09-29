@@ -29,7 +29,6 @@ const CartForm = (props) => {
         onSnackbarsOpen();
         setTimeout(() => props.clearCart(), 2500)
     };
-
     const onSnackbarsOpen = () => {
         setOpen(true);
     };
@@ -54,7 +53,6 @@ const CartForm = (props) => {
                                         <Grid item>
                                             <TextField type="text" name="name" label="Фамилия и имя"
                                                        required
-
                                                        inputRef={register({
                                                            required: "Это поле обязательное",
                                                            maxLength: {
