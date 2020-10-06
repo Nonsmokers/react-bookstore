@@ -1,8 +1,10 @@
 import React from 'react';
 import s from "./CartForm.module.css";
 import {Controller, useForm} from "react-hook-form";
-import { Card, CardActions, MenuItem, FormControl, Button, Select, InputLabel, TextField, createMuiTheme,
-    ThemeProvider, Typography, Grid, Snackbar} from "@material-ui/core";
+import {
+    Card, CardActions, MenuItem, FormControl, Button, Select, InputLabel, TextField, createMuiTheme,
+    ThemeProvider, Typography, Grid, Snackbar
+} from "@material-ui/core";
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import PhoneIcon from '@material-ui/icons/Phone';
 import MailIcon from '@material-ui/icons/Mail';
@@ -51,7 +53,7 @@ const CartForm = (props) => {
                                     <Grid container spacing={1} alignItems="flex-end" className={s.item}>
                                         <Grid item><AccountCircle color={"secondary"}/></Grid>
                                         <Grid item>
-                                            <TextField type="text" name="name" label="Фамилия и имя"
+                                            <TextField type="text" name="name" label="Имя получателя"
                                                        required
                                                        inputRef={register({
                                                            required: "Это поле обязательное",

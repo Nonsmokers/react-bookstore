@@ -1,48 +1,47 @@
 import React from 'react';
-import s from "../CartPage/CartForm/CartForm.module.css";
+import s from "./AuthPage.module.css";
 import {useForm} from "react-hook-form";
 import {Card, CardActions, Button, TextField, createMuiTheme, ThemeProvider, Typography, Grid} from "@material-ui/core";
 import PhoneIcon from '@material-ui/icons/Phone';
 import MailIcon from '@material-ui/icons/Mail';
 import {connect} from "react-redux";
-import {auth} from "../../actions/auth";
+import {auth} from "../../redux/actions/auth";
 
 const theme = createMuiTheme({palette: {primary: {main: '#8c957b'}, secondary: {main: '#626856'}}});
 
-const AuthPage = (props) => {
+const Authentication = (props) => {
 
     const defaultValues = {
         email: "",
         password: "",
         returnSecureToken: true
     };
-
     const {register, handleSubmit, errors, getValues} = useForm({defaultValues});
 
     const onSubmit = (values) => {
         console.log(values);
     };
-
     const loginHandler = () => {
         props.auth(
             getValues("email"),
             getValues("password"),
             true
         )
-    }
+    };
     const registerHandler = () => {
         props.auth(
             getValues("email"),
             getValues("password"),
             false
         )
-    }
+    };
 
-    return (<>
+    return (
+        <>
             <div>
                 <div className={s.root}>
                     <div>
-                        <Typography variant="h4" noWrap className={s.header}>Оформление заказа</Typography>
+                        <Typography variant="h4" noWrap className={s.header}>Авторизация</Typography>
                         <Card className={s.wrapperCard}>
                             <ThemeProvider theme={theme}>
                                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -104,9 +103,10 @@ const AuthPage = (props) => {
         </>
     )
 }
+
 const mapDispatchToProps = dispatch => ({
     auth: (email, password, isLogin) => dispatch(auth(email, password, isLogin))
 });
 
-export default connect(null, mapDispatchToProps)(AuthPage);
+export default connect(null, mapDispatchToProps)(Authentication);
 

@@ -8,14 +8,16 @@ import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import MenuBookOutlinedIcon from '@material-ui/icons/MenuBookOutlined';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
-import logo from '../../accets/img/logo.svg'
-import s from './Sidebar.module.css'
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import logo from '../../accets/img/logo.svg';
+import s from './Sidebar.module.css';
+import {connect} from "react-redux";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+
     const [navbarOpen, setNavbarOpen] = React.useState(null);
-
     const isNavbarOpen = Boolean(navbarOpen);
-
     const handleNavbarOpen = (event) => {
         setNavbarOpen(event.currentTarget);
     };
@@ -23,60 +25,46 @@ const Sidebar = () => {
         setNavbarOpen(null);
     };
 
+    const links = [
+        {to: '/', label: 'Главная', icon: <HomeOutlinedIcon/>},
+        {to: '/books', label: 'Каталог', icon: <MenuBookOutlinedIcon/>},
+        {to: '/cart', label: 'Корзина', icon: <ShoppingCartOutlinedIcon/>},
+    ];
+
+    if (props.isAuthenticated) {
+        links.push({to: '/profile', label: 'Профиль', icon: <AccountCircle/>})
+        links.push({to: '/settings', label: 'Настройки', icon: <SettingsOutlinedIcon/>})
+        links.push({to: '/logout', label: 'Выйти', icon: <ExitToAppIcon/>})
+    } else {
+        links.push({to: '/auth', label: 'Войти', icon: <ExitToAppIcon/>})
+    }
+
+    let renderLinks = (links) => {
+        return links.map((link, index) => {
+            return (
+                <NavLink key={index} exact to={link.to} className={s.sidebarText}>
+                    <Divider/>
+                    <ListItem button onClick={handleNavbarOpen}>
+                        <ListItemIcon>
+                            {link.icon}
+                        </ListItemIcon>
+                        <ListItemText>
+                            <Typography variant="h5" color="textSecondary">
+                                {link.label}
+                            </Typography>
+                        </ListItemText>
+                    </ListItem>
+                </NavLink>
+            )
+        })
+    }
+
     const list = () => (
         <List className={s.list}>
             <div className={s.logoContainer}>
                 <img src={logo} alt='logo' className={s.logo}/>
             </div>
-            <NavLink exact to="/" className={s.sidebarText}>
-                <ListItem button onClick={handleNavbarOpen}>
-                    <ListItemIcon>
-                        <HomeOutlinedIcon/>
-                    </ListItemIcon>
-                    <ListItemText>
-                        <Typography variant="h5" color="textSecondary">
-                            Главная
-                        </Typography>
-                    </ListItemText>
-                </ListItem>
-            </NavLink>
-            <NavLink exact to="/books" className={s.sidebarText}>
-                <ListItem button onClick={handleNavbarOpen}>
-                    <ListItemIcon>
-                        <MenuBookOutlinedIcon/>
-                    </ListItemIcon>
-                    <ListItemText>
-                        <Typography variant="h5" color="textSecondary">
-                            Каталог
-                        </Typography>
-                    </ListItemText>
-                </ListItem>
-            </NavLink>
-            <NavLink exact to="/cart" className={s.sidebarText}>
-                <ListItem button onClick={handleNavbarOpen}>
-                    <ListItemIcon>
-                        <ShoppingCartOutlinedIcon/>
-                    </ListItemIcon>
-                    <ListItemText>
-                        <Typography variant="h5" color="textSecondary">
-                            Корзина
-                        </Typography>
-                    </ListItemText>
-                </ListItem>
-            </NavLink>
-            <Divider/>
-            <NavLink exact to="/settings" className={s.sidebarText}>
-                <ListItem button onClick={handleNavbarOpen}>
-                    <ListItemIcon>
-                        <SettingsOutlinedIcon/>
-                    </ListItemIcon>
-                    <ListItemText>
-                        <Typography variant="h5" color="textSecondary">
-                            Настройки
-                        </Typography>
-                    </ListItemText>
-                </ListItem>
-            </NavLink>
+            {renderLinks(links)}
         </List>
     );
 
@@ -100,7 +88,8 @@ const Sidebar = () => {
         </ nav>
     );
 }
+const mapStateToProps = (state) => ({
+    isAuthenticated: !!state.authReducer.token
+});
 
-export default Sidebar;
-
-
+export default connect(mapStateToProps)(Sidebar);

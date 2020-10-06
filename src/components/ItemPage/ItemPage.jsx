@@ -23,23 +23,25 @@ const ItemPage = (props) => {
                             <Rating name="read-only" value={props.book.rating} readOnly/>
                         </div>
                         <div className={s.card_title_price}>
-                            <Typography variant="body1" component="p"><LocalOfferIcon/> &nbsp;Цена :&nbsp;<b>{props.book.price} ₽</b></Typography>
+                            <Typography variant="body1" component="p"><LocalOfferIcon/> &nbsp;Цена :&nbsp;
+                                <b>{props.book.price} ₽</b></Typography>
                         </div>
                         <div className={s.buttons_wrapper}>
-                            <ThemeProvider theme={theme}>
-                                <Button
-                                    onClick={props.addBookToCart.bind(this, props.book)}
-                                    color="primary"
-                                    className={s.add_book_button}
-                                    variant="contained"
-                                    startIcon={<ShoppingCartIcon/>}
-                                > Добавить в корзину</Button>
 
-                                <NavLink to={`/books`}>
+                            <Button
+                                onClick={props.addBookToCart.bind(this, props.book)}
+                                color="primary"
+                                className={s.add_book_button}
+                                variant="contained"
+                                startIcon={<ShoppingCartIcon/>}
+                            > Добавить в корзину</Button>
+
+                            <NavLink to={`/books`}>
+                                <ThemeProvider theme={theme}>
                                     <Button color="secondary" startIcon={<HomeOutlinedIcon/>}>
                                         Вернуться к покупкам </Button>
-                                </NavLink>
-                            </ThemeProvider>
+                                </ThemeProvider>
+                            </NavLink>
 
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {setFilter} from "../../../actions/filter";
+import {setFilter} from "../../../redux/actions/filter";
 import SortBooks from "./SortBooks";
 
 const mapStateToProps = (state) => ({

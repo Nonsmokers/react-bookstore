@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {addBookToCart} from "../../../actions/cart";
+import {addBookToCart} from "../../../redux/actions/cart";
 import BookCard from "./BookCard";
 
 const mapStateToProps = ({cartReducer},{id}) => ({

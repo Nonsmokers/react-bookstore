@@ -1,8 +1,8 @@
 import {combineReducers} from "redux";
-import booksReducer from "./booksReducer";
-import cartReducer from "./cartReducer";
-import filterReducer from "./filterReducer";
-import authReducer from "./authReducer";
+import booksReducer from "./reducers/booksReducer";
+import cartReducer from "./reducers/cartReducer";
+import filterReducer from "./reducers/filterReducer";
+import authReducer from "./reducers/authReducer";
 
 const rootReducer = combineReducers({
     booksReducer: booksReducer,

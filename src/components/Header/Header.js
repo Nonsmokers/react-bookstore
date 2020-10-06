@@ -1,17 +1,11 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MoreIcon from '@material-ui/icons/MoreVert';
+import {NavLink} from "react-router-dom";
 import HeaderCart from "./HeaderCart";
 import HeaderInput from "./HeaderInput";
 import Sidebar from "../Sidebar/Sidebar";
-import {NavLink} from "react-router-dom";
+import {makeStyles,MenuItem, Typography, IconButton, Toolbar, AppBar, Menu} from '@material-ui/core';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import MoreIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme) => ({
     cart: {
@@ -75,8 +69,15 @@ const Header = (props) => {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Профиль</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Заказы</MenuItem>
+            {props.isAuthenticated ?
+                <div>
+                    <MenuItem onClick={handleMenuClose}>Профиль</MenuItem>
+                    <MenuItem onClick={handleMenuClose}>Заказы</MenuItem>
+                </div> :
+                <NavLink to={'/auth'}>
+                    <MenuItem onClick={handleMenuClose}>Войти</MenuItem>
+                </NavLink>
+            }
         </Menu>
     );
     const renderMobileMenu = (
@@ -87,7 +88,7 @@ const Header = (props) => {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <NavLink to={'/Cart'} className={classes.cart}>
+            <NavLink to={'/cart'} className={classes.cart}>
                 <MenuItem>
                     <HeaderCart count={props.count}/>
                     <p>Корзина</p>
@@ -101,16 +102,14 @@ const Header = (props) => {
             <AppBar position="static"
                     className={classes.header}>
                 <Toolbar>
-                    <Sidebar edge="start"
-                             color="inherit">
-                    </Sidebar>
+                    <Sidebar edge="start" color="inherit"/>
 
                     <Typography className={classes.title} variant="h6" noWrap>
                         React-bookstore
                     </Typography>
                     <HeaderInput setSearchQuery={props.setSearchQuery}/>
                     <div className={classes.grow}/>
-                    <NavLink to={'/Cart'}>
+                    <NavLink to={'/cart'}>
                         <div className={classes.sectionDesktop}>
                             <HeaderCart count={props.count}/>
                         </div>

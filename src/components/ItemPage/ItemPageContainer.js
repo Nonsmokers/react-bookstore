@@ -4,23 +4,15 @@ import {connect} from "react-redux";
 import find from "lodash/find";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ItemPage from "./ItemPage";
-import {setBooks} from "../../actions/books";
-import {addBookToCart} from "../../actions/cart";
+import {setBooks} from "../../redux/actions/books";
+import {addBookToCart} from "../../redux/actions/cart";
 
 class ItemPageContainer extends React.Component {
-/*
-    componentWillMount() {
-        const {setBooks} = this.props;
-        axios.get('/booksData.json').then(response => {
-            setBooks(response.data)
-            console.log(response.data)
-        })
-    }*/
+
     componentWillMount() {
         const {setBooks} = this.props;
         axios.get('https://react-bookstore-4ee5d.firebaseio.com/books.json').then(response => {
             setBooks(response.data)
-            console.log(response.data)
         })
     }
 

@@ -1,4 +1,4 @@
-import {setBooks} from "../../../actions/books";
+import {setBooks} from "../../../redux/actions/books";
 import {connect} from "react-redux";
 import BooksLayout from "./BooksLayout";
 import orderBy from "lodash/orderBy";

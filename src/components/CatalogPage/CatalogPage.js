@@ -1,18 +1,17 @@
 import React from 'react';
 import * as axios from "axios";
 import {connect} from "react-redux";
-import {setBooks} from "../../actions/books";
+import {setBooks} from "../../redux/actions/books";
 import SortBooks from "./SortBooks/SortBooksContainer";
 import BooksGridContainer from "./Books/BooksLayoutContainer";
 import Footer from "../../components/CatalogPage/Footer/Footer";
-import {removeBookFromCart} from "../../actions/cart";
+import {removeBookFromCart} from "../../redux/actions/cart";
 
 class CatalogPage extends React.Component {
     componentWillMount() {
         const {setBooks} = this.props;
         axios.get('https://react-bookstore-4ee5d.firebaseio.com/books.json').then(response => {
             setBooks(response.data)
-            console.log(response.data)
         })
     }
 

@@ -4,6 +4,7 @@ import CartListContainer from "./CartListItem/CartListItemContainer";
 import {List} from "@material-ui/core";
 import s from "./CartPage.module.css";
 import CartFormContainer from "./CartForm/CartFormContainer";
+import AuthPage from "../AuthPage/Authentication";
 
 const CartPage = (props) => {
 
@@ -15,9 +16,10 @@ const CartPage = (props) => {
                         <List className={s.list}>
                             {props.items.map((book, id) => <CartListContainer key={id} {...book} />)}
                         </List>
-                        <div className={s.form}>
-                            <CartFormContainer/>
-                        </div>
+                        {(props.isAuthenticated) ?
+                            <div className={s.form}><CartFormContainer/></div> :
+                            <div className={s.form}><AuthPage/></div>
+                        }
                     </div>
                 }
             </div>
