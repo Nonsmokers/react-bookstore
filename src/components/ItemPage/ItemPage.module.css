@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300&display=swap');
+
+.wrapper {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: ease all .3s;
+}
+.card {
+    display: flex;
+    color: #5c6251;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 1024px;
+    min-width: 355px;
+    margin: 0 15px 20px;
+}
+.card_title {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    width: 50%;
+    text-align: center;
+    transition: ease all .3s;
+}
+.card_title_description{
+    margin-top: 20px !important;
+}
+.card_image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 400px;
+    width: 50%;
+    transition: ease all .3s;
+}
+.card_image_photo {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+}
+
+.card_image_background {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+}
+.buttons_wrapper {
+    display: flex;
+    width: 93%;
+    justify-content: space-between;
+}
+
+.card_title_price {
+    margin: 10px 0;
+    min-height: 30px;
+}
+.card_title_price p {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rating{
+    margin-top: 10px;
+}
+.add_book_button{
+    margin-right: 10px !important;
+}
+
+@media (max-width: 670px) {
+    .wrapper {
+        overflow: auto;
+    }
+    .card {
+        flex-direction: column-reverse;
+        margin-top: auto;
+        min-width: 320px;
+    }
+    .card_title {
+        width: 90%;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .card_image {
+        width: 60%;
+        margin: 15px;
+    }
+    .buttons_wrapper {
+        width: 100%;
+        max-width: 500px;
+    }
+}

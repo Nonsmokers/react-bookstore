@@ -1,11 +1,9 @@
-import {applyMiddleware, combineReducers, createStore} from "redux";
+import {applyMiddleware, createStore} from "redux";
 import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
+import rootReducer from "./rootReducer";
 
-const reducers = combineReducers({
-});
-
-let store = createStore(reducers, composeWithDevTools(
+let store = createStore(rootReducer, composeWithDevTools(
     applyMiddleware(thunk)));
 
 window.store = store;

@@ -1,0 +1,80 @@
+.root {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 93vh;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-position: 50% 55%;
+    background-image: url('../../accets/img/main1.png');
+    background-size: cover;
+}
+
+.title_wrapper {
+    font-weight: lighter;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 320px;
+    text-align: center;
+}
+
+.title_wrapper h1 {
+    font-size: 4rem;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 200 !important;
+    color: white;
+    display: inline-block;
+    transition: all ease .3s;
+    letter-spacing: .2em;
+    margin: 0;
+}
+
+.title_wrapper h2 {
+    font-size: 1em;
+    color: white;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 300 !important;
+    max-width: 75%;
+    margin: 40px 0;
+    transition: ease all .3s;
+}
+
+@media screen and (max-width: 1024px) {
+    .title_wrapper h1 {
+        font-size: 3em;
+        transition: all ease .3s;
+    }
+}
+
+@media screen and  (max-width: 768px) {
+    .title_wrapper h1 {
+        font-size: 2.4em;
+    }
+
+    .title_wrapper h2 {
+        font-size: .8em;
+    }
+}
+
+@media screen and  (max-width: 550px) {
+    .title_wrapper h1 {
+        font-size: 1.6em;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .title_wrapper h2 {
+        font-size: .6em;
+    }
+}
+
+
